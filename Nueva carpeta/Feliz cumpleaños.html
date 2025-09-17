@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Muy Feliz Cumpleaños!</title>
+    <style>
+   
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            animation: gradient-animation 10s ease infinite;
+            background-size: 400% 400%;
+            text-align: center;
+            color: #333;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            transform: scale(0.9);
+            animation: pop-in 0.8s forwards ease-out;
+        }
+
+        @keyframes pop-in {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #e83e8c;
+            font-size: 3em;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #555;
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+        h3{
+            color: #666;
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .celebrate-btn {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #e83e8c;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+       
+.dancing-cat {
+    width: 100px;
+    height: auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite alternate;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+            
+            
+    
+
+        .celebrate-btn:hover {
+            background-color: #c22a72;
+            transform: scale(1.05);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: fall 4s linear forwards;
+   
+            
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¡FELIZ CUMPLEAÑOS!</h1>
+        <h3>16/09/2025</h3>
+     
+        <h2 id="nombre-persona">QUERIDA GIN</h2>
+        <img src="Gato.gif" alt="Gatito negro bailando" class="dancing-cat">
+        
+        <div class="message">
+               <p id="mensaje-personalizado">
+                No somos libres de nuestro pasado,
+               </p>  
+               <p id="mensaje-personalizado"> pero si somos libre de elegir como vivir lo que nos queda de vida.
+            <p id="mensaje-personalizado">
+               ¡ERES UNA OBRA DE ARTE EN PROCESO!
+            </p>
+          <p id="mensaje-personalizado"> 
+   
+              Atte: Marta 🐈‍⬛👇🏼🎁
+       
+            
+            </p>
+        </div>
+
+        <button class="celebrate-btn" onclick="celebrate()">Our future has already been written by us alone🎁! </button>
+    </div>
+
+    <audio id="cancionCumpleanos" src="Epica.mp3.mp3"></audio> 
+
+    <script>
+        function celebrate() {
+            
+            const audio = document.getElementById('cancionCumpleanos');
+            audio.play();
+
+            const colors = ['#e83e8c', '#ff9a9e', '#f9d423', '#3498db', '#9b59b6'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = Math.random() * -100 + 'vh';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 7000);
+            }
+        }
+    </script>
+
+</body>
+</html>
